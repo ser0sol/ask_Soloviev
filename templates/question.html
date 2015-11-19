@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} question {% endblock %}
+
+{% block main %}				
+			<div class=" col-md-6 col-md-offset-1 ">
+				<h3> <span class="label label-info col-md-offset-4 font"> Question </span></h3>
+				<div class="row element boxShadow">
+	    			<div class="col-md-2">
+	    				<img src="http://lorempixel.com/80/80" alt="" height="80" width="80" class="avatar_margin">
+	    				<button type="submit" class="btn btn-success like">
+		    				 <span class="glyphicon glyphicon-thumbs-up"></span>  
+		    				 </button>
+		    				 <input type="text" class="like">
+		    				 <button type="submit" class="btn btn-danger like">
+		    				 	<span class="glyphicon glyphicon-thumbs-down"></span>  
+		    				 </button>
+	    				</div>
+	    			<div class="col-md-9 col-md-offset-1">
+	    				<h4 class="title-el"><a href="#">{{question.title}}</a></h4>
+	    				<p class="text-el">
+	    				{{question.text}}
+	    				</p>
+	    				<p> Tags: <a href="#">black-jack</a> <a href="#">bender</a></p>
+	    			</div>
+
+	    		</div>
+		   			{% for answer in answers %}
+		   			<div class="row element boxShadow">
+		    			<div class="col-md-3">
+		    				<img src="http://lorempixel.com/60/60" alt="" height="60" width="60" class="avatar_margin">
+		    				<label>
+				          					<input type="checkbox"> Correct!  
+				        				</label>
+		    			</div>
+		    			<div class="col-md-8 col-md-offset-1">
+					    				<p class="text-el">
+					    				{{ answer }}
+					    				{{ answer.id }}
+					    				</p>
+					    				
+				        				<label>Created:</label> <p>{{answer.created}} </p>
+	        			</div>
+		   			</div>
+		   			{% endfor %}
+ 				{% include "paginations.html" with pager=answers %}
+
+					<div class="row element ">
+		    				<div class="col-sm-12">
+				      			<textarea class="form-control text_area" placeholder= "Input your answer here...." rows="10"></textarea>
+				    		</div>
+				    		<div class=" col-sm-10">
+						      <button type="submit" class="btn btn-info top otstup">Answer!</button>
+						    </div>
+				    </div>
+				</div>
+	{% endblock %}

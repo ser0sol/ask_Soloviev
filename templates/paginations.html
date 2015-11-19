@@ -1,0 +1,12 @@
+<nav class="col-md-offset-4">
+					  <ul class="pagination">
+					   {% if pager.has_previous %}
+					  <li> <a href="1"> GoFitst </a></li>
+					  <li> <a href="{{ pager.previous_page_number }}">{{ pager.previous_page_number}}</a></li>
+					  {% endif %}
+					  {% if pager.has_next %}
+					  <li> <a href="{{ pager.next_page_number }}">{{ pager.next_page_number }} </a></li>
+					  <li> <a href="{{ pager.paginator.num_pages}}" >GoLast</a></li>
+					  {% endif %}
+					</ul>
+				</nav>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} main {% endblock %}
+{% block main %}
+
+
+			 <div class = "col-md-7 col-md-offset-1 my_nav">
+            	<p class="col-md-6"> Sorted by:<a href="{% url 'hot' %}"> Rating </a>&nbsp&nbsp  <a href="{% url 'tag' %}"> Tags </a>&nbsp&nbsp  <a href="{% url 'newest' %}"> Dates </a></p>
+                <p class="col-md-6"> Answers: <a href="{% url 'hot' %}"> ascending</a>&nbsp&nbsp <a href=""> descending </a></p>
+            </div>
+	
+			<div class="col-md-7 col-md-offset-1 forum_border">
+           {% for question in questions %}
+				<div class="row element boxShadow">
+	    			<div class="col-md-2">
+	    				<img src="http://lorempixel.com/50/50" alt="" height="60" width="60" class="avatar_margin">
+	    				<button type="submit" class="btn btn-success like">
+	   					<span class="glyphicon glyphicon-thumbs-up"></span>  		    				</button>
+	   					<input type="text" class="like">
+		    				 <button type="submit" class="btn btn-danger like">
+	    					<span class="glyphicon glyphicon-thumbs-down"></span>
+		    				 </button>
+	    			</div>
+	    			<div class="col-md-9">
+	    				<h4 class="title-el"><a href="{% url 'question' question.id %} ">{{ question.title }} </a></h4>
+	    				<p class="text-el">
+	    					{{ question.text }} 
+	    				</p>
+	    				<p class="pull-right"> <a href="{% url 'question' question.id %} ">Answers <span class="badge">{{question.rating}}</span></a> 
+	    				Tags:  <a href="#">{{ tag }}</a> <a href="#">bender</a></p>
+	    			</div>
+	    		</div>
+	    		{% endfor %}
+
+			{% include "paginations.html" with pager=questions %}
+				</div>
+			{% endblock %}

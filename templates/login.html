@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} LogIn {% endblock %}
+
+{% block main %}
+			<div class="col-md-6 col-md-offset-1 ">
+				<h3> <span class="label label-info col-md-offset-4 font"> Authorization </span></h3>
+					
+				<form class="form-horizontal otstup box">
+						  <div class="form-group top">
+						    <label class="col-sm-2 col-sm-offset-2 control-label">Login:</label>
+						    <div class="col-sm-5">
+						      <input type="text" class="form-control" id="inputEmail3" placeholder="Input your login">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 col-sm-offset-2 control-label">Password:</label>
+						    <div class="col-sm-5">
+						      <input type="text" class="form-control" id="inputEmail3" placeholder="Input your login">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-10">
+						      <div class="checkbox">
+						        <label>
+						          <input type="checkbox"> Remember me
+						        </label>
+						      </div>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-10">
+						      <button type="submit" class="btn btn-default">Log In</button>
+						    </div>
+						  </div>
+						  <div class= "col-sm-offset-8">
+					<a href="{% url 'login' %}"> Create new account </a>
+				</div>
+				</form>
+
+				
+
+	  		</div>
+{% endblock %}

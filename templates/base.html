@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>{% block title %} main {% endblock %}</title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/my_style.css" rel="stylesheet">
+</head>
+	<body>
+		<div class=" navbar navbar-default " role="navigation">  
+		<!-- navbar-fixed-top -->
+			<div class="container">
+				<div class="navbar-header">
+		      		<a class="navbar-brand logo font" href="{% url 'baze' %}"> Ask Me! </a>
+		       	</div>
+		       	<form class="navbar-form navbar-left" role="search">
+					<div class="input-group">
+						<input type="text" style="padding:10px;" class="form-control navbar_search" placeholder="Search">
+						<span class="input-group-btn">
+							<button class="btn btn-default navbar_search" type="button"><span class="glyphicon glyphicon-search">
+							</span> Search</button>
+						</span>
+					</div>			
+				</form>
+
+				
+			  	<ul class = "nav navbar-nav navbar-right">
+			  <a href="{% url 'login' %}"> Login </a>  </br>  or </br>  <a href="{% url 'signup' %}"> SignUp </a> 
+			<!--   <li class="avatar">  <img src="http://lorempixel.com/50/50" alt="" height="50" width="50">  </li>
+<span class="pull-right">
+	<a href="#"><b>SERGEY<span class="glyphicon glyphicon-home"></span></b></a> </br>	
+	<a href="#">settings</a>&nbsp&nbsp&nbsp<a href="{% url 'baze' %}">logout</a>				
+</span>		 -->
+			  	</ul>
+			  	<ul class="nav navbar-right col-md-1 col-md-offset-1">
+					<li> <a  href= "{% url 'ask' %}" > 
+					<button class="btn btn-primary navbar-btn proba">ASK!</button> 
+					</a></li>
+			  	</ul>
+			</div>
+		</div>
+
+		<div class =  "row">
+		{% block main %}
+		{% endblock %}
+
+			<div class="col-md-2 col-md-offset-1">
+				<h3><span class="label label-info font"> Best Tags </span></h3>
+					<p class="for_tags otstup">
+					{% for t in tag %}
+					<a href = "{% url 'tag' question.tagname %}" >{{t.name}}</a>
+					{% endfor %}
+					</p>
+				<h3><span class="label label-info font"> Best Members </span></h3>
+				<p class="for_tags">
+					<a href="#"> Sergey </a></br>
+					<a href="#"> Ivan </a></br>
+					<a href="#"> Denis </a></br>
+				</p>
+			</div>
+
+		</div>
+
+</body>
+</html>
+</html>
